@@ -1,21 +1,12 @@
-// module.exports = ({ env }) => ({
-//   // ...
-//   email: {
-//     config: {
-//       provider: "sendgrid", // For community providers pass the full package name (e.g. provider: 'strapi-provider-email-mandrill')
-//       providerOptions: {
-//         apiKey: env("SENDGRID_API_KEY"),
-//       },
-//       settings: {
-//         defaultFrom: "jportilla0921@gmail.com",
-//         defaultReplyTo: "jportilla0921@gmail.com",
-//         testAddress: "jportilla0921@gmail.com",
-//       },
-//     },
-//   },
-// });
-
 module.exports = ({ env }) => ({
+  // Configuración para el plugin de autenticación y permisos
+  "users-permissions": {
+    config: {
+      jwtSecret: env("JWT_SECRET"), // Se obtiene desde las variables de entorno
+    },
+  },
+
+  // Configuración para el envío de correos usando nodemailer
   email: {
     config: {
       provider: "nodemailer",
